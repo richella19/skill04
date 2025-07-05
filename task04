@@ -1,3 +1,64 @@
-https://github.com/user-attachments/assets/03b19015-757f-4111-b339-05bdf4e70883
-pls copy this url and paste it in the google to view the video
-Thanking you:)
+print("🧪 Task 2 – EDA & Data Cleaning Using Custom Passenger Data")
+print("👨‍💻 Intern:Richella.M")
+print("🏫 College: Rajalakshmi Institute of Technology")
+print("🏢 Skill Craft Learning")
+print("------------------------------------------------------------\n")
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
+# 🔧 Step 2: Create Custom Dataset
+data = {
+    "Name": ["Ramesh", "Priya", "Akash", "Meena", "Sanjay", "Lakshmi", "Raj", "Divya", "Anil", "Keerthi"],
+    "Age": [25, 30, 45, 22, np.nan, 35, 60, 28, 18, 50],
+    "Gender": ["Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female", "Male", "Female"],
+    "Ticket_Class": ["First", "Second", "Third", "First", "Third", "Second", "Third", "First", "Second", "First"],
+    "Fare": [100, 75, 30, 120, 25, 80, 35, 110, 70, 95],
+    "Destination": ["Mumbai", "Chennai", "Delhi", "Delhi", "Kolkata", "Mumbai", "Bangalore", "Chennai", "Kolkata", "Delhi"],
+    "Survived": [1, 1, 0, 1, 0, 1, 0, 1, 0, 1]
+}
+
+df = pd.DataFrame(data)
+
+# 🔍 Step 3: Data Cleaning – Fill missing age with median
+df['Age'].fillna(df['Age'].median(), inplace=True)
+
+# 📊 Step 4: EDA Visualizations
+
+# Gender count
+sns.countplot(x='Gender', data=df, palette='Set2')
+plt.title("🚻 Passenger Gender Distribution")
+plt.tight_layout()
+plt.show()
+
+# Histogram – Age
+sns.histplot(df['Age'], bins=5, color='skyblue')
+plt.title("🎂 Age Distribution")
+plt.xlabel("Age")
+plt.tight_layout()
+plt.show()
+
+# Class vs Survival
+sns.countplot(x='Ticket_Class', hue='Survived', data=df, palette='Set3')
+plt.title("🎫 Survival by Ticket Class")
+plt.tight_layout()
+plt.show()
+
+# Gender vs Survival
+sns.countplot(x='Gender', hue='Survived', data=df, palette='cool')
+plt.title("🚻 Gender vs Survival")
+plt.tight_layout()
+plt.show()
+
+# 🧠 Step 5: Insights
+print("\n📝 Insights by Richella.M:")
+print("✅ Females had higher survival rate.")
+print("✅ First class passengers survived more.")
+print("✅ Age distribution is balanced across young and old.")
+print("✅ Data cleaned successfully by filling missing age.")
+
+# ✅ Final message
+print("\n🎉 Task 2 Completed Successfully!")
+print("📊 Custom Passenger Data EDA Done ✅")
